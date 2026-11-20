@@ -62,7 +62,7 @@ export async function getPokemonWithDetails(offset = 0, limit = 20) {
 
 
 
-const BASE_URL = "http://localhost:3000";
+
 
 // Main request function
 export async function request(method, route, body = null) {
@@ -125,7 +125,19 @@ export async function updateCreature(id, data) {
 
 export async function deleteCreature(id) {
     return request("DELETE", `/creatures/${id}`);
+
 }
+
+export const getCreatures = async (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+}
+     const Route = query
+     ? `/creatures?${query}`
+        : "/creatures";
+
+    return request("GET", route);
+
+
 
 
      
